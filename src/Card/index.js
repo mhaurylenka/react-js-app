@@ -1,8 +1,8 @@
 import React from 'react';
 
-import '../Card/Card.css';
+import './Card.css';
 
-const card = (props) => {
+const Card = props => {
     return (
         <div className="card">
             <h3> { props.caption } </h3>
@@ -12,4 +12,4 @@ const card = (props) => {
     );
 }
 
-export default card;
+export default Card;
