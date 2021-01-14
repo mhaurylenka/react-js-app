@@ -1,12 +1,3 @@
-/*.card {
-    display: inline-block;
-    border-radius: 1px solid #eee;
-    width: 250px;
-    box-shadow: 2px 2px 2px 2px #ccc;
-    padding: 20px;
-    margin: 30px;
-}*/
-
 .card-checkbox{
     display: inline;
     float: right;
@@ -16,7 +7,7 @@
     display: inline;
 }
 
-.checked {
+.card-checked {
     display: inline-block;
     border-radius: 1px solid #eee;
     width: 250px;
@@ -25,7 +16,7 @@
     margin: 30px;
 }
 
-.unchecked {
+.card-unchecked {
     display: inline-block;
     border-radius: 1px solid #eee;
     width: 250px;

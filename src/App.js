@@ -8,8 +8,8 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Card caption="Caption 1" text="Hello World"/>
-        <Card caption="Caption 2" text="This is my first React Component"/>
+        <Card caption="Caption 1" text="Hello World" />
+        <Card caption="Caption 2" text="This is my first React Component" />
       </div>
     );
   }

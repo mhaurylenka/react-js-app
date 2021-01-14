@@ -1,7 +1,3 @@
-import React from 'react';
-
-import './Header.css';
-
-const Header = () => <header className="header"> Header </header>;
+import Header from './Header'
 
 export default Header;
