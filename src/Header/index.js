@@ -2,6 +2,6 @@ import React from 'react';
 
 import './Header.css';
 
-const header = () => <header className="header"> Header </header>;
+const Header = () => <header className="header"> Header </header>;
 
-export default header;
+export default Header;

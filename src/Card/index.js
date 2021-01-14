@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './Card.css';
 
-const card = props => {
+const Card = props => {
 
     let cardClass;
     
@@ -33,4 +33,4 @@ const card = props => {
     );
 }
 
-export default card;
+export default Card;
