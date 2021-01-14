@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 
+import Header from './Header';
+import Card from './Card';
+
 class App extends Component {
   render() {
     return (
       <div>
-        <h3>Hello World</h3>
+        <Header />
+        <Card caption="Caption 1" text="Hello World"/>
+        <Card caption="Caption 2" text="This is my first React Component"/>
       </div>
     );
   }
