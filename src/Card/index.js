@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import './Card.css';
+import './index.css';
 
 const Card = props => {
+
+    let cardClass;
+    
+    const [ styleState, setStyleState ] = useState({
+        isChecked: false
+    })
+
+    const changeCheckBox = () => {
+        setStyleState({
+            isChecked: !styleState.isChecked
+        });
+    }
+    
     return (
-        <div className="card">
-            <h3> { props.caption } </h3>
+        <div className={styleState.isChecked ? "card-checked" : "card-unchecked"}>
+            <h3 className="caprion">{props.caption}</h3>
+            <input className="card-checkbox" type="checkbox" onChange={changeCheckBox}/>
             <hr/>
-            <p> { props.text } </p>
+            <p>{props.text}</p>
         </div>
     );
 }
