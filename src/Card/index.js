@@ -15,16 +15,9 @@ const Card = props => {
             isChecked: !styleState.isChecked
         });
     }
-
-    if(styleState.isChecked) {
-        cardClass = "card-checked";
-    }
-    else {
-        cardClass = "card-unchecked";
-    }
     
     return (
-        <div className={cardClass}>
+        <div className={styleState.isChecked ? "card-checked" : "card-unchecked"}>
             <h3 className="caprion">{props.caption}</h3>
             <input className="card-checkbox" type="checkbox" onChange={changeCheckBox}/>
             <hr/>
