@@ -1,26 +1,41 @@
-.card-checkbox{
-    display: inline;
-    float: right;
-}
-
-.caprion{
-    display: inline;
-}
-
 .card-checked {
-    display: inline-block;
     border-radius: 1px solid #eee;
     width: 250px;
     box-shadow: 2px 2px 2px 2px red;
     padding: 20px;
     margin: 30px;
+    word-break:break-all;
 }
 
 .card-unchecked {
-    display: inline-block;
     border-radius: 1px solid #eee;
     width: 250px;
     box-shadow: 2px 2px 2px 2px #ccc;
     padding: 20px;
     margin: 30px;
+    word-break:break-all;
+}
+
+.buttons {
+    float: right;
+}
+
+.caption {
+    display: inline;
+}
+
+.card-checkbox, .card-square {
+    display: inline-block;
+}
+
+.icon-size {
+    font-size: 24px;
+}
+
+input {
+    box-sizing: border-box
+}
+
+input[type=checkbox] {
+    transform: scale(1.2);
 }
