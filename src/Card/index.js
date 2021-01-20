@@ -5,9 +5,13 @@ import './index.css';
 
 const Card = props => {
 
+    const data = { caption: props.cardData.caption, text: props.cardData.text };
+
     const [checkBoxStyleState, setCheckBoxStyleState] = useState({ isChecked: false })
 
     const [checkBoxEditModeState, setCheckBoxEditModeState] = useState({ isEditModeActive: false })
+
+    const [tempState, setTempState] = useState(data);
 
     const changeCheckBoxStyle = () => {
         setCheckBoxStyleState({
@@ -15,47 +19,49 @@ const Card = props => {
         });
     }
 
-    console.log(checkBoxStyleState)
-
-    const activeEditMode = () => {
+    const toggleEditMode = () => {
         setCheckBoxEditModeState({
             isEditModeActive: !checkBoxEditModeState.isEditModeActive
         });
         setCheckBoxStyleState({ isChecked: false });
     }
 
+    const changePropertyHandler = (event, property) => {
+        setTempState({...tempState, [property]: event.target.value });
+    }
+
     const saveChangedState = () => {
-        props.saveChanges();
-        activeEditMode();
+        props.onSaveChanges(tempState);
+        toggleEditMode();
     }
 
     const cancelChangedState = () => {
-        props.cancelChanges();
-        activeEditMode();
+        setTempState(data);
+        toggleEditMode();
     }
 
     return (
         <div style={{ display: 'inline-block' }}>
             {checkBoxEditModeState.isEditModeActive ? (
                 <div className="card-unchecked">
-                    <input className="caption" value={props.caption} onChange={props.changeCaption} />
+                    <input className="caption" value={tempState.caption} onChange={(e) => changePropertyHandler(e, "caption")} />
                     <div className="buttons">
                         <AiFillSave className="icon-size" onClick={saveChangedState} />
                         <AiFillCloseSquare className="icon-size" onClick={cancelChangedState} />
                         <input className="card-checkbox" type="hidden" onChange={changeCheckBoxStyle} />
-                        <input className="card-square" type="hidden" onChange={activeEditMode} />
+                        <input className="card-square" type="hidden" onChange={toggleEditMode} />
                     </div>
                     <hr />
-                    <input type="text" value={props.text} onChange={props.changeText} />
+                    <input type="text" value={tempState.text} onChange={(e) => changePropertyHandler(e, "text")} />
                 </div>) : (
                     <div className={checkBoxStyleState.isChecked ? "card-checked" : "card-unchecked"}>
-                        <h3 className="caption">{props.caption}</h3>
+                        <h3 className="caption">{tempState.caption}</h3>
                         <div className="buttons">
                             <input className="card-checkbox" type="checkbox" onChange={changeCheckBoxStyle} />
-                            <AiFillEdit className="card-square icon-size" onClick={activeEditMode} />
+                            <AiFillEdit className="card-square icon-size" onClick={toggleEditMode} />
                         </div>
                         <hr />
-                        <p>{props.text}</p>
+                        <p>{tempState.text}</p>
                     </div>)
             }
         </div>
