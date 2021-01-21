@@ -5,13 +5,11 @@ import './index.css';
 
 const Card = props => {
 
-    const data = { caption: props.cardData.caption, text: props.cardData.text };
-
     const [checkBoxStyleState, setCheckBoxStyleState] = useState({ isChecked: false })
 
     const [checkBoxEditModeState, setCheckBoxEditModeState] = useState({ isEditModeActive: false })
 
-    const [tempState, setTempState] = useState(data);
+    const [tempState, setTempState] = useState({...props.cardData});
 
     const changeCheckBoxStyle = () => {
         setCheckBoxStyleState({
@@ -36,7 +34,7 @@ const Card = props => {
     }
 
     const cancelChangedState = () => {
-        setTempState(data);
+        setTempState({...props.cardData});
         toggleEditMode();
     }
 
