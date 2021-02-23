@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import Header from './Header';
 import Card from './Card';
+import { Checkbox } from './Styles/Checkbox';
 
 const App = () => {
 
@@ -39,10 +40,10 @@ const App = () => {
   return (
     <div>
       <Header />
-      <div style={{ padding: '10px', margin: '15px' }}>
+      <Checkbox box={readModeState.isReadModeActive}>
         <input type="checkbox" id="only-read" onClick={toggleReadMode} />
         <label>Только просмотр</label>
-      </div>
+      </Checkbox>
       <div>
         {cardsState.map((card, index) => {
           return <Card
